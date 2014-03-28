@@ -46,24 +46,7 @@ class myPDOStatement extends PDOStatement
 {
 	function execute($data = array())
 	{
-		foreach($data as $param => $value)
-		{
-			$type  = PDO::PARAM_STR;
-
-			if (is_int($value) || ctype_digit($value))
-			{
-				$value = intval($value);
-				$type  = PDO::PARAM_INT;
-			}
-
-			if (is_int($param) || ctype_digit($param))
-			{
-				$param++;
-			}
-
-			$this->bindValue($param, $value, $type);
-		}
-		parent::execute();
+		parent::execute($data);
 		return $this;
 	}
 }
