@@ -66,7 +66,7 @@ Some technical notes and explanations (or, rather, excuses =).
 ### Static singleton implementation 
 
 Well, singleton considered a test-killer. Okay, fair point.   
-But see, there are *two* PHPs actually: Beside brave new shiny java-like PHP, there is still dirty old spaghetti HTML-all-over-the-place PHP. And, judging by StackOverflow questions, users of the latter are innumerable. Struggling even with plain procedural mysql_*, they take mysqli and PDO as a disaster. Their attempts to use these two extensions makes one cry. So - better to supply them with a tool that they can use, avoiding all the pitfalls like multiple connections, lack of error reporting, and stuff.
+But see, there are *two* PHPs actually: Beside brave new shiny java-like PHP, there is still dirty old procedural spaghetti HTML-all-over-the-place PHP. And, judging by StackOverflow questions, users of the latter are innumerable. Struggling even with plain procedural mysql_*, they take mysqli and PDO as a disaster. Their attempts to use these two extensions makes one cry. So - better to supply them with a tool that they can use, avoiding all the pitfalls like multiple connections, lack of error reporting, and stuff.
 
 ### fix for the execute() returning boolean disallowing method chaining
 
