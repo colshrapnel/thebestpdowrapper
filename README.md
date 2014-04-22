@@ -66,13 +66,8 @@ Dome technical notes and explanations.
 ### Static singleton implementation
 
 Well, singleton considered a test-killer. Okay, fair point.   
-But see, there are *two* PHPs actually: Beside brave new shiny java-like PHP, there is still dirty old spaghetti HTML-all-over-the-place PHP. And, judging by StacjOverflow questions, users of the latter are innumerable. Struggling even with plain procedural mysql_*, they take mysqli and PDO as a disaster. Their appempts to use these two extensions makes one cry. So - better to suppli them with a tool that they can use.
+But see, there are *two* PHPs actually: Beside brave new shiny java-like PHP, there is still dirty old spaghetti HTML-all-over-the-place PHP. And, judging by StackOverflow questions, users of the latter are innumerable. Struggling even with plain procedural mysql_*, they take mysqli and PDO as a disaster. Their attempts to use these two extensions makes one cry. So - better to supply them with a tool that they can use, avoiding all the pitfalls like multiple connections, lack of error reporting, and stuff.
 
 ### fix for the execute() returning boolean disallowing method chaining
 
 This is an obvious fix. In exception mode, one don't need to check execute() results manually. Means we can make it return statement, which will allow us neat method caining. 
-
-
-
-
-
