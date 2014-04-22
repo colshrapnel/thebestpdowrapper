@@ -6,16 +6,14 @@ Were written with these main goals in mind:
 - static singleton implementation to make DB layer available anywhere
 - fix for the execute() returning boolean disallowing method chaining
 
-## Static singleton implementation
-
-Although for the heavily OO-designned application such approach considered rather wrong practice, for the classical plain procedural PHP it is going the most reilable way, resembling old mysql_* style making database calls incredible simple in use, combining simplicity of old mysql functions with power and safety of prepared statements. Look:
+Although for the heavily OO-designned application **such an approach considered rather wrong practice**, for the classical plain procedural PHP it is going to be the most reilable way, resembling old mysql_* style, making database calls incredible simple in use, combining simplicity of old mysql functions with power and safety of prepared statements. A quick example:
 
     $sql  = 'SELECT return, fields  FROM table WHERE search_field = ?';
     $data = DB:prepare($sql)->execute([$search_val])->fetchAll();
 
 only two lines to get search results!
 
-All you need is to edit configuration constants and include this file in some bootstrap file. **That's all.** And immediately it will let you to use PDO as easy as mysql_* used to be (as long as you have this file included), yet with full power and safety of prepared statements. Or even simpler than old mysql ext, as most operations will be written in one-two lines.
+All you need is to edit configuration constants and include this file in some bootstrap file. **That's all.** And immediately it will let you use PDO as easy as mysql_* used to be (as long as you have this file included), yet with full power and safety of prepared statements. Or even simpler than old mysql ext, as most operations will be written in one-two lines.
 
 There are yet some differences from old mysql ext:
 
@@ -62,6 +60,17 @@ Here are some usage examples
 as you can see it's most simple, concise and intuitive usage
 
 And remember - you have to follow the main rule of creating SQL statements: **every variable should go into query via placeholder only**
+
+Dome technical notes and explanations.
+
+### Static singleton implementation
+
+Well, singleton considered a test-killer. Okay, fair point.   
+But see, there are *two* PHPs actually: Beside brave new shiny java-like PHP, there is still dirty old spaghetti HTML-all-over-the-place PHP. And, judging by StacjOverflow questions, users of the latter are innumerable. Struggling even with plain procedural mysql_*, they take mysqli and PDO as a disaster. Their appempts to use these two extensions makes one cry. So - better to suppli them with a tool that they can use.
+
+### fix for the execute() returning boolean disallowing method chaining
+
+This is an obvious fix. In exception mode, one don't need to check execute() results manually. Means we can make it return statement, which will allow us neat method caining. 
 
 
 
