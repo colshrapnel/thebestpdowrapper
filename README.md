@@ -9,7 +9,7 @@ Were written with these main goals in mind:
 Although for the heavily OO-designned application **such an approach considered rather wrong practice**, for the classical plain procedural PHP it is going to be the most reilable way, resembling old mysql_* style, making database calls incredible simple in use, combining simplicity of old mysql functions with power and safety of prepared statements. A quick example:
 
     $sql  = 'SELECT return, fields  FROM table WHERE search_field = ?';
-    $data = DB:prepare($sql)->execute([$search_val])->fetchAll();
+    $data = DB::prepare($sql)->execute([$search_val])->fetchAll();
 
 only two lines to get search results!
 
