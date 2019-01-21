@@ -61,7 +61,7 @@ as you can see it's most simple, concise and intuitive usage
 
 And remember - you have to follow the main rule of creating SQL statements: **every variable should go into query via placeholder only**
 
-###Some technical notes and explanations (or, rather, excuses =).
+### Some technical notes and explanations (or, rather, excuses =).
 
 - **Static singleton implementation**
 
