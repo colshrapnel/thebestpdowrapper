@@ -8,15 +8,13 @@
  *
  *
 **/
-
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'test');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_CHAR', 'utf8');
-
 class DB
 {
+    private static $host = 'localhost';
+    private static $user = 'root';
+    private static $pass = '';
+    private static $dbname = 'test';
+    private static $charset = 'utf8';
     protected static $instance = null;
 
     final private function __construct() {}
@@ -32,8 +30,8 @@ class DB
 				PDO::ATTR_EMULATE_PREPARES   => TRUE,
 				PDO::ATTR_STATEMENT_CLASS    => array('myPDOStatement'),
 			);
-            $dsn = 'mysql:host='.DB_HOST.';dbname='.DB_NAME.';charset='.DB_CHAR;
-            self::$instance = new PDO($dsn, DB_USER, DB_PASS, $opt);
+            $dsn = 'mysql:host='.self::$host.';dbname='.self::$dbname.';charset='.self::$charset;
+            self::$instance = new PDO($dsn, self::$user, self::$pass, $opt);
         }
         return self::$instance;
     }
